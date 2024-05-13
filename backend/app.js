@@ -44,7 +44,7 @@ It allows your Express application to handle JSON-encoded data
 app.use(express.json({ limit: '10mb' ,verify:(req,res,buf)=>req.rawBody=buf.toString()}))
 app.use(cookieParser())
 //app.use(bodyParser.json({ limit: '50mb' }));
-dotenv.config({path:'./backend/config/config.env'})
+
 
 //connecting to the database
 connectDB()
@@ -54,6 +54,10 @@ app.use("/api/v1",productRouter);
 app.use("/api/v1",authRouter);
 app.use("/api/v1", orderRoutes);
 app.use('/api/v1',paymentRouter);
+
+if(process.env.NODE_ENV!='PRODUCTION'){
+  dotenv.config({path:'./backend/config/config.env'})
+}
 
 if(process.env.NODE_ENV==='PRODUCTION'){
    // Serve static files from the build directory
