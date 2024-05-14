@@ -9,6 +9,8 @@ import cookieParser from "cookie-parser";
 import path from 'path';
 import { fileURLToPath } from "url";
 import orderRoutes from "./routes/order.js"
+
+const PORT=process.env.PORT || 4000
 //import bodyParser  from "body-parser"
 /*
 Let's say a user makes a request to your server, triggering a series of operations in your code.
@@ -71,8 +73,8 @@ if(process.env.NODE_ENV==='PRODUCTION'){
 // call error errorMiddleware 
 app.use(errorMiddleware)
 
-const server=app.listen(4000,async()=>{
-    console.log(`listening on the port ${process.env.PORT} in ${process.env.NODE_ENV} mode`)
+const server=app.listen(PORT,async()=>{
+    console.log(`listening on the port ${PORT} in ${process.env.NODE_ENV} mode`)
 })
 
 // Handle Unhandled Promise Rejections
