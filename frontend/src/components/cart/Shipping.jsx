@@ -32,9 +32,10 @@ const [country,Setcountry]=useState('')
         e.preventDefault();
        console.log('sdf',{address,city,phoneNo,zipCode,country})
         dispatch(setShippingInfo({address,city,phoneNo,zipCode,country}))
+        navigate('/confirm_order')
     }
     const handleroute=()=>{
-      navigate('/confirm_order')
+     
 
     }
   return (
