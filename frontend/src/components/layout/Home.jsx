@@ -38,27 +38,29 @@ if (isLoading)return <Loader/>
    <>
 <Metadata title={'Buy best Products Online'}/>
 
-      <div className="row">
-        {keyword && <div className='col-6 col-sm-6 col-md-3 my-2'>
-<Filters/>
-        </div>}
-        <div className={keyword? `col-6 col-sm-6 col-md-9`:`col-6 col-sm-6 col-md-12`}>
-          <h5 id="products_heading" className="text-secondary">
-            {keyword?`${data?.products?.length} product found with keyword`:"Latest Products"}</h5>
+<div className="row">
+  {keyword && 
+    <div className='col-12 col-md-3 my-2'>
+      <Filters />
+    </div>
+  }
+  <div className={keyword ? `col-12 col-md-9` : `col-12`}>
+    <h5 id="products_heading" className="text-secondary">
+      {keyword ? `${data?.products?.length} product found with keyword` : "Latest Products"}
+    </h5>
 
-          <section id="products" className="mt-5">
-            <div className="row">
-              {data?.products?.map((product)=>{
-                return(<ProductItem key={product.id} product={product}/>)
-              })}
-             
-             
-            
-            </div>
-          </section>
-          <CustomPagination resPerPage={data?.resPerPage} filteredProductsCount={data?.filterProductLength}/>
+    <section id="products" className="mt-5">
+      <div className="d-flex flex-column align-items-center" style={{ minHeight: '100vh' }}>
+        <div className="row w-100 d-flex justify-content-center">
+          {data?.products?.map((product) => {
+            return (<div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center my-2"><ProductItem key={product.id} product={product} /></div>)
+          })}
         </div>
       </div>
+    </section>
+    <CustomPagination resPerPage={data?.resPerPage} filteredProductsCount={data?.filterProductLength} />
+  </div>
+</div>
     
    
    </>
