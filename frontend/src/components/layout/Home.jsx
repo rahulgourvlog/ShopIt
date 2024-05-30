@@ -51,9 +51,15 @@ if (isLoading)return <Loader/>
 
     <section id="products" className="mt-5">
       <div className="d-flex flex-column align-items-center" style={{ minHeight: '100vh' }}>
-        <div className="row w-100 d-flex justify-content-center">
+        <div className="row w-100">
           {data?.products?.map((product) => {
-            return (<div className="col-12 col-sm-6 col-md-4 d-flex justify-content-center my-2"><ProductItem key={product.id} product={product} /></div>)
+            return (
+           <>
+          
+                <ProductItem key={product.id} product={product} />
+               
+                </>
+            )
           })}
         </div>
       </div>
@@ -61,6 +67,7 @@ if (isLoading)return <Loader/>
     <CustomPagination resPerPage={data?.resPerPage} filteredProductsCount={data?.filterProductLength} />
   </div>
 </div>
+    
     
    
    </>
