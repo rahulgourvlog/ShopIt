@@ -94,6 +94,7 @@ nav {
 
 .card {
   height: 100%;
+  width: 100%;
 }
 
 .card-title a {
@@ -115,13 +116,13 @@ nav {
 }
 
 .card-img-top {
-  width: 180px;
-  height: 140px;
+  width: 60%;
+  height: 50%;
 }
 
 .card-img-bottom{
   width: 80%;
-  height: 120px;
+  height: 60%;
 }
 
 .ratings {
@@ -578,3 +579,4 @@ footer {
   border-radius: 0.3rem;
   color: #fa9c23;
 }
+
