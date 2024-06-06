@@ -48,5 +48,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://shopitlatest.netlify.app"
+  "proxy": "http://localhost:4000"
 }
