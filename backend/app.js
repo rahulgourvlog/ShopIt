@@ -62,6 +62,14 @@ if(process.env.NODE_ENV!='PRODUCTION'){
 }
 
 
+if(process.env.NODE_ENV==='PRODUCTION'){
+   // Serve static files from the build directory
+  app.use(express.static(path.join(__dirname,'../frontend/build')))
+   // Route handler for all other routes
+  app.get('*',(req,res)=>{
+    res.sendFile(path.resolve(__dirname,'../frontend/build/index.html'))
+  })
+}
 
 // call error errorMiddleware 
 app.use(errorMiddleware)
